@@ -1,0 +1,218 @@
+{
+  "input": {
+    "workflow": {
+      "3": {
+        "inputs": {
+          "text": "Instagirl, l3n0v0, amateur photo taken with direct on-camera flash in a dimly lit bathroom, where a teen egirl with long, dark hair in pigtails takes a moody mirror selfie. She holds her phone to obscure one eye, looking at her reflection with a neutral expression, wearing heavy black lipstick and eyeliner. Her skin has a slight oily shine from the harsh flash, which creates deep shadows and visible grain. She is wearing a striped long-sleeve shirt under a faded band t-shirt, a pleated black mini skirt, and a chain belt. On the smudged mirror, written in what looks like pink lipstick, are the words \"Instagirl\".",
+          "clip": [
+            "68",
+            1
+          ]
+        },
+        "class_type": "CLIPTextEncode",
+        "_meta": {
+          "title": "Positive Prompt"
+        }
+      },
+      "4": {
+        "inputs": {
+          "text": "色调艳丽，过曝，静态，细节模糊不清，字幕，风格，作品，画作，画面，静止，整体发灰，最差质量，低质量，JPEG压缩残留，丑陋的，残缺的，多余的手指，画得不好的手部，画得不好的脸部，畸形的，毁容的，形态畸形的肢体，手指融合，静止不动的画面，杂乱的背景，三条腿，背景人很多，倒着走, censored, sunburnt skin, rashy skin, red cheeks, pouty face, duckbil face\n",
+          "clip": [
+            "68",
+            1
+          ]
+        },
+        "class_type": "CLIPTextEncode",
+        "_meta": {
+          "title": "Negative Prompt"
+        }
+      },
+      "8": {
+        "inputs": {
+          "filename": "wan_2.1_vae.safetensors"
+        },
+        "class_type": "VAELoader",
+        "_meta": {
+          "title": "VAELoader"
+        }
+      },
+      "9": {
+        "inputs": {
+          "samples": [
+            "36",
+            0
+          ],
+          "vae": [
+            "8",
+            0
+          ]
+        },
+        "class_type": "VAEDecode",
+        "_meta": {
+          "title": "VAEDecode"
+        }
+      },
+      "10": {
+        "inputs": {
+          "filename_prefix": "ComfyUI",
+          "images": [
+            "9",
+            0
+          ]
+        },
+        "class_type": "SaveImage",
+        "_meta": {
+          "title": "SaveImage"
+        }
+      },
+      "22": {
+        "inputs": {
+          "filename": "wan2.2_umt5_xxl_fp8_e4m3fn_scaled.safetensors"
+        },
+        "class_type": "CLIPLoader",
+        "_meta": {
+          "title": "CLIPLoader"
+        }
+      },
+      "35": {
+        "inputs": {
+          "text": "enable",
+          "model": [
+            "68",
+            0
+          ],
+          "positive": [
+            "3",
+            0
+          ],
+          "negative": [
+            "4",
+            0
+          ],
+          "latent_image": [
+            "128",
+            0
+          ],
+          "noise_seed": [
+            "67",
+            0
+          ]
+        },
+        "class_type": "KSamplerAdvanced",
+        "_meta": {
+          "title": "KSamplerAdvanced"
+        }
+      },
+      "36": {
+        "inputs": {
+          "text": "enable",
+          "model": [
+            "72",
+            0
+          ],
+          "positive": [
+            "3",
+            0
+          ],
+          "negative": [
+            "4",
+            0
+          ],
+          "latent_image": [
+            "35",
+            0
+          ],
+          "noise_seed": [
+            "67",
+            0
+          ]
+        },
+        "class_type": "KSamplerAdvanced",
+        "_meta": {
+          "title": "KSamplerAdvanced"
+        }
+      },
+      "67": {
+        "inputs": {
+          "value": 383547150481568
+        },
+        "class_type": "Seed Generator",
+        "_meta": {
+          "title": "Seed Generator"
+        }
+      },
+      "68": {
+        "inputs": {
+          "lora_name": "Instagirlv2.5-HIGH.safetensors",
+          "strength_model": 1,
+          "strength_clip": 1,
+          "model": [
+            "105",
+            0
+          ],
+          "clip": [
+            "22",
+            0
+          ]
+        },
+        "class_type": "LoraLoader",
+        "_meta": {
+          "title": "LoraLoader"
+        }
+      },
+      "71": {
+        "inputs": {
+          "filename": "Instagirlv2.5-LOW.safetensors",
+          "model": [
+            "106",
+            0
+          ]
+        },
+        "class_type": "LoraLoaderModelOnly",
+        "_meta": {
+          "title": "LoraLoaderModelOnly"
+        }
+      },
+      "72": {
+        "inputs": {
+          "filename": "lenovo.safetensors",
+          "model": [
+            "71",
+            0
+          ]
+        },
+        "class_type": "LoraLoaderModelOnly",
+        "_meta": {
+          "title": "LoraLoaderModelOnly"
+        }
+      },
+      "105": {
+        "inputs": {
+          "filename": "wan2.2_t2v_high_noise_14B_fp8_scaled.safetensors"
+        },
+        "class_type": "UNETLoader",
+        "_meta": {
+          "title": "UNETLoader"
+        }
+      },
+      "106": {
+        "inputs": {
+          "filename": "wan2.2_t2v_low_noise_14B_fp8_scaled.safetensors"
+        },
+        "class_type": "UNETLoader",
+        "_meta": {
+          "title": "UNETLoader"
+        }
+      },
+      "128": {
+        "inputs": {
+          "value": 1024
+        },
+        "class_type": "EmptyHunyuanLatentVideo",
+        "_meta": {
+          "title": "EmptyHunyuanLatentVideo"
+        }
+      }
+    }
+  }
+}
